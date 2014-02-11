@@ -60,4 +60,5 @@ group :development,:test do
   gem 'guard-rspec'
   gem 'factory_girl_rails'
   gem 'spring'
+  gem 'database_cleaner'
 end

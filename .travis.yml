@@ -1,6 +1,11 @@
 language: ruby
 bnndler_args: --without development --path vendor/bundle
-script: "bundle exec rspec"
+script:
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rspec
+before_script:
+  - cp config/database.travis.yml config/database.yml
+  - mysql -e 'create database kikupon_test'
 rvm:
   - 2.0.0
 gemfile:
